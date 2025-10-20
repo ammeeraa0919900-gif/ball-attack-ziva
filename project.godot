@@ -1,0 +1,32 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Ball Attack"
+run/main_scene="uid://bxpqns0acr1fk"
+config/features=PackedStringArray("4.5", "Mobile")
+config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="canvas_items"
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "teal",
+"res://scenes/": "pink",
+"res://src/": "purple"
+}
+
+[rendering]
+
+renderer/rendering_method="mobile"

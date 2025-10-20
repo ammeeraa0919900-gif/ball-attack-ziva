@@ -1,0 +1,100 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxpqns0acr1fk"]
+
+[ext_resource type="Script" uid="uid://do6qhombr2diy" path="res://src/game.gd" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://gx3s610jf75j" path="res://assets/gameover.png" id="3_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://c4rl6n5rkitr8" path="res://assets/background.jpg" id="3_lnu2h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lnu2h"]
+font_size = 35
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 14
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2.935, 2.694)
+
+[node name="Game" type="Node"]
+script = ExtResource("1_uwrxv")
+
+[node name="background" type="TextureRect" parent="."]
+modulate = Color(0.4, 0.16, 0.16, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_lnu2h")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="score_timer" type="Timer" parent="."]
+
+[node name="ball_spawn_timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="gameover_popup" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.82, 0.82, 0.82, 0.34509805)
+
+[node name="CenterContainer" type="Control" parent="CanvasLayer/gameover_popup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.375, 0.375)
+
+[node name="Gameover" type="TextureRect" parent="CanvasLayer/gameover_popup/CenterContainer"]
+modulate = Color(0.73, 0.647875, 0.6205, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -400.0
+offset_right = 400.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+texture = ExtResource("3_lbhrr")
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="CanvasLayer/gameover_popup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = 197.0
+offset_right = 111.0
+offset_bottom = 248.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Try again!"
+label_settings = SubResource("LabelSettings_lnu2h")
+horizontal_alignment = 1
+
+[node name="score_label" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 28.0
+offset_right = 20.0
+offset_bottom = 77.0
+grow_horizontal = 2
+text = "0"
+label_settings = SubResource("LabelSettings_lnu2h")
+horizontal_alignment = 1
